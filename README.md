@@ -81,48 +81,7 @@ Geração de resposta pelo GPT-4o
 Resposta exibida na interface do operador
 ```
 
-
-
 ---
 
-## 📋 System Prompt Base
-
-O system prompt completo está documentado em [`/docs/system_prompt.md`](./docs/system_prompt.md).
-
----
-
-## 🧪 Modelo de Teste
-
-O conjunto de perguntas e respostas esperadas para avaliação do chatbot está documentado em [`/docs/modelo_de_teste.md`](./docs/modelo_de_teste.md).
-
----
-
-## 📁 Estrutura do Repositório
-
-```
-chargeGrid-bot/
-├── README.md
-├── docs/
-│   ├── system_prompt.md        ← System prompt base
-│   ├── modelo_de_teste.md      ← Perguntas e respostas esperadas
-│   └── fluxograma.png          ← Fluxograma do chatbot
-├── src/
-│   ├── main.py                 ← Entrypoint FastAPI (Sprint 2)
-│   ├── chatbot.py              ← Lógica de orquestração LangChain
-│   └── goodwe_api.py           ← Integração com SEMS API
-└── requirements.txt
-```
-
----
-
-## 📊 Cronograma de Sprints
-
-| Sprint | Foco | Status |
-|--------|------|--------|
-| Sprint 1 | Exploração, planejamento e documentação | ✅ Em andamento |
-| Sprint 2 | Desenvolvimento do MVP do chatbot | ⏳ Aguardando |
-| Sprint 3 | Testes, refinamento e apresentação | ⏳ Aguardando |
-
----
 
 *Projeto desenvolvido para o EV Challenge 2026 — GoodWe × FIAP*
