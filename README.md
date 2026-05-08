@@ -1,9 +1,9 @@
-# ⚡ ChargeGrid Intelligence Bot
+# ChargeGrid Intelligence Bot
 ### Chatbot operacional para gerenciamento de eletropostos GoodWe — EV Challenge 2026 | FIAP
 
 ---
 
-## 👥 Integrantes do Projeto
+## Integrantes do Projeto
 
 | Nome | RM |
 |------|-----|
@@ -11,7 +11,7 @@
 
 ---
 
-## 🏢 Sobre o Desafio
+##  Sobre o Desafio
 
 O **EV Challenge 2026** proposto pela **GoodWe** apresenta um problema real enfrentado por operadores de eletropostos comerciais: a ausência de mecanismos integrados para **orquestrar potência**, **registrar ciclos de recarga**, **processar faturamento** e **comunicar status** dos equipamentos — o que a GoodWe denomina **ChargeGrid Intelligence**.
 
@@ -19,7 +19,7 @@ Atualmente, operadores precisam acessar múltiplos painéis e ferramentas descon
 
 ---
 
-## 🤖 Proposta do Chatbot
+##  Proposta do Chatbot
 
 O **ChargeGrid Intelligence Bot** é um assistente conversacional com IA destinado ao **operador comercial de eletropostos**, com o objetivo de centralizar, contextualizar e responder a demandas operacionais em linguagem natural.
 
@@ -41,7 +41,7 @@ O **ChargeGrid Intelligence Bot** é um assistente conversacional com IA destina
 
 ---
 
-## 🛠️ Tecnologias Selecionadas
+##  Tecnologias Selecionadas
 
 | Componente | Tecnologia | Justificativa |
 |-----------|-----------|---------------|
@@ -60,7 +60,7 @@ O **ChargeGrid Intelligence Bot** é um assistente conversacional com IA destina
 
 ---
 
-## 🔄 Fluxo de Funcionamento (resumo)
+##  Fluxo de Funcionamento (resumo)
 
 ```
 Operador envia pergunta
@@ -70,10 +70,10 @@ Injeção de contexto (system prompt + dados do posto)
 Classificação de intenção (operacional / técnica / faturamento)
         ↓
 ┌─────────────────┐    ┌──────────────────────┐
-│ Requer dados    │    │ Contexto base         │
-│ em tempo real?  │    │ é suficiente?         │
-│ → Consulta API  │    │ → Responde direto     │
-│   GoodWe SEMS   │    │   com system prompt   │
+│ Requer dados    │    │ Contexto base        │
+│ em tempo real?  │    │ é suficiente?        │
+│ → Consulta API  │    │ → Responde direto    │
+│   GoodWe SEMS   │    │   com system prompt  │
 └─────────────────┘    └──────────────────────┘
         ↓
 Geração de resposta pelo GPT-4o
