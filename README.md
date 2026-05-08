@@ -81,7 +81,7 @@ Geração de resposta pelo GPT-4o
 Resposta exibida na interface do operador
 ```
 
-O fluxograma completo está disponível em [`/docs/fluxograma.png`](./docs/fluxograma.png).
+
 
 ---
 
