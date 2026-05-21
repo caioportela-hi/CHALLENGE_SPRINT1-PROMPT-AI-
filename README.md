@@ -47,14 +47,10 @@ O **ChargeGrid Intelligence Bot** é um assistente conversacional com IA destina
 |-----------|-----------|---------------|
 | Modelo de IA | OpenAI GPT-4o | Melhor relação custo-desempenho para compreensão de linguagem técnica em português; suporte nativo a function calling para consultas de API |
 | Orquestração | LangChain (Python) | Permite gerenciar o histórico de conversa, injetar contexto dinâmico e encadear chamadas de ferramentas de forma estruturada |
-| Backend | FastAPI (Python) | Leve, assíncrono e adequado para APIs de chat com streaming de respostas |
-| Frontend | React + TailwindCSS | Interface de chat responsiva, integrável a dashboards existentes |
-| Banco de contexto | PostgreSQL + pgvector | Armazenamento de embeddings para recuperação de documentação técnica (RAG) |
-| Integração GoodWe | GoodWe SEMS API | Fonte de dados em tempo real: status, potência, histórico de sessões |
 
 ### Justificativa técnica da escolha do GPT-4o
-- **Compreensão técnica**: o modelo interpreta termos de energia elétrica e protocolos de recarga (OCPP, CHAdeMO, CCS) sem fine-tuning
-- **Function calling**: permite ao chatbot decidir autonomamente quando consultar a API GoodWe vs. responder com contexto base
+- **Compreensão técnica**: o modelo interpreta termos de energia elétrica e protocolos de recarga  sem fine-tuning
+- **Function calling**: permite ao chatbot decidir autonomamente quando consultar o SEMS+ vs. responder com contexto base
 - **Multilingue**: responde em português com qualidade nativa
 - **API madura**: documentação sólida, SLA estabelecido, adequado para MVP em prazo de Sprint
 
