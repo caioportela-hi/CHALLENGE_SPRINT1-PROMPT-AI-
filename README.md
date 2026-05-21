@@ -41,12 +41,11 @@ O **ChargeGrid Intelligence Bot** é um assistente conversacional com IA destina
 
 ---
 
-##  Tecnologias Selecionadas
+##  Tecnologia Selecionada
 
 | Componente | Tecnologia | Justificativa |
 |-----------|-----------|---------------|
 | Modelo de IA | OpenAI GPT-4o | Melhor relação custo-desempenho para compreensão de linguagem técnica em português; suporte nativo a function calling para consultas de API |
-| Orquestração | LangChain (Python) | Permite gerenciar o histórico de conversa, injetar contexto dinâmico e encadear chamadas de ferramentas de forma estruturada |
 
 ### Justificativa técnica da escolha do GPT-4o
 - **Compreensão técnica**: o modelo interpreta termos de energia elétrica e protocolos de recarga  sem fine-tuning
@@ -68,8 +67,8 @@ Classificação de intenção (operacional / técnica / faturamento)
 ┌─────────────────┐    ┌──────────────────────┐
 │ Requer dados    │    │ Contexto base        │
 │ em tempo real?  │    │ é suficiente?        │
-│ → Consulta API  │    │ → Responde direto    │
-│   GoodWe SEMS   │    │   com system prompt  │
+│ → Consulta o    │    │ → Responde direto    │
+│   SEMS+         │    │   com system prompt  │
 └─────────────────┘    └──────────────────────┘
         ↓
 Geração de resposta pelo GPT-4o
