@@ -8,6 +8,10 @@
 | Nome | RM |
 |------|-----|
 | *Caio César Portela França* | *573127* |
+| *Davi Teodoro Novais* | *571022* |
+| *Gustavo Curis de Francisco* | *569704* |
+| *Lourenco Borges da Silva* | *569515* |
+| *Tiago Pimentel Muniz* | *574148* |
 
 ---
 
