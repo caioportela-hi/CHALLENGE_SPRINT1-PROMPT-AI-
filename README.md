@@ -36,9 +36,9 @@ O **RAG (Retrieval-Augmented Generation)** permite que o chatbot responda com ba
 1. A query é vetorizada e comparada aos 25 documentos da base
 2. Os 3 mais relevantes (score > 0.3) são recuperados
 3. São injetados dinamicamente no system prompt antes da resposta
-´´´
+
 Isso elimina alucinações sobre especificações técnicas e garante que os dados (potências, erros, procedimentos) sejam precisos e rastreáveis.
- 
+
 ---
 
 ### O que o chatbot resolve
@@ -98,18 +98,15 @@ Resposta exibida na interface do operador
 
 ## Como Executar no Google Colab
  
-### Pré-requisitos
-- Conta Google com acesso ao [Google Colab](https://colab.research.google.com)
-- Chave de API da OpenAI (obtenha em [platform.openai.com](https://platform.openai.com))
 ### Passo a passo
  
-**1. Abra o notebook no Colab**
+**1. Abra o arquivo "Chatbot_GoodWe_Sprint2.ipynb" no Google Colab**
 ```
 Arquivo > Abrir notebook > GitHub > cole a URL do repositório
 Selecione: Chatbot_GoodWe_Sprint2.ipynb
 ```
  
-**2. Configure a API Key via Colab Secrets** *(sem expor a chave no código)*
+**2. Configure a API Key via Colab Secrets**
 ```
 Painel esquerdo > ícone de chave 🔑 > "+ Adicionar novo secret"
 Nome: OPENAI_API_KEY
