@@ -1,0 +1,152 @@
+[
+  {
+    "id": "kb001",
+    "categoria": "equipamento",
+    "titulo": "HCA-G2 — Visão Geral",
+    "conteudo": "O HCA-G2 é o carregador AC comercial da GoodWe voltado para estacionamentos e frotas. Opera em corrente alternada trifásica (3F) ou monofásica (1F), com potência configurável de 7,4 kW a 22 kW por conector. Possui dois conectores Tipo 2 (IEC 62196), comunicação OCPP 1.6 JSON via Wi-Fi ou Ethernet e display LCD para interação local. É compatível com painéis fotovoltaicos GoodWe via integração SEMS+."
+  },
+  {
+    "id": "kb002",
+    "categoria": "equipamento",
+    "titulo": "HCA-G2 — Especificações Técnicas",
+    "conteudo": "Tensão de entrada: 220–240 V (1F) ou 380–415 V (3F). Corrente máxima por conector: 32 A. Potência por conector: até 22 kW (3F) ou 7,4 kW (1F). Grau de proteção: IP54. Temperatura de operação: -25°C a +55°C. Comunicação: OCPP 1.6 JSON, Modbus TCP. Certificações: CE, IEC 61851-1, IEC 62196-2. Dimensões: 380 x 200 x 120 mm. Peso: 8,5 kg."
+  },
+  {
+    "id": "kb003",
+    "categoria": "instalacao",
+    "titulo": "Instalação do HCA-G2 — Requisitos Elétricos",
+    "conteudo": "Para instalar o HCA-G2 em potência máxima (22 kW por conector), é necessário: alimentação trifásica 380 V com neutro, disjuntor de 40 A por unidade, cabo de alimentação mínimo 6 mm², aterramento com resistência inferior a 10 Ω, e proteção diferencial 30 mA Tipo A. Para instalações com painel solar integrado, o inversor GoodWe deve estar na mesma rede local para comunicação SEMS+."
+  },
+  {
+    "id": "kb004",
+    "categoria": "instalacao",
+    "titulo": "Instalação do HCA-G2 — Passo a Passo",
+    "conteudo": "1. Fixar o suporte de parede no local definido (parafusos M8 em superfície sólida). 2. Passar cabeamento de alimentação e de rede pelo canal traseiro. 3. Conectar os fios de fase, neutro e terra nos bornes internos conforme diagrama do manual. 4. Conectar cabo Ethernet ou configurar Wi-Fi via display LCD no menu Configurações > Rede. 5. Energizar o equipamento — o LED frontal deve piscar em azul durante inicialização. 6. Acessar o SEMS+ para vincular o equipamento ao perfil do estabelecimento. 7. Realizar teste de carga com veículo elétrico para validar operação."
+  },
+  {
+    "id": "kb005",
+    "categoria": "instalacao",
+    "titulo": "HCA-G2 sem painel solar",
+    "conteudo": "O HCA-G2 pode ser instalado e operado sem painéis solares da GoodWe. Neste caso, a energia utilizada provém exclusivamente da rede elétrica da concessionária. A ausência de geração solar não impede nenhuma funcionalidade do equipamento: OCPP, gerenciamento de sessões, faturamento e balanceamento de carga funcionam normalmente. A integração solar é opcional e pode ser adicionada futuramente sem necessidade de substituição do carregador."
+  },
+  {
+    "id": "kb006",
+    "categoria": "operacao",
+    "titulo": "Balanceamento de Carga (Load Balancing)",
+    "conteudo": "O HCA-G2 implementa balanceamento dinâmico de carga quando dois conectores estão em uso simultâneo. Se a capacidade contratada do estabelecimento for, por exemplo, 22 kW, e dois veículos estiverem carregando ao mesmo tempo, o sistema distribui automaticamente — 11 kW por conector. O limite de potência total é configurável pelo operador no SEMS+ em Configurações > Gerenciamento de Energia. O balanceamento é recalculado a cada 30 segundos com base na demanda real de cada veículo."
+  },
+  {
+    "id": "kb007",
+    "categoria": "operacao",
+    "titulo": "Throttling e Pico de Demanda",
+    "conteudo": "O throttling (limitação de potência) é ativado automaticamente quando a demanda total do estabelecimento atinge 85% da capacidade contratada. Neste estado, o HCA-G2 reduz a corrente de saída em incrementos de 2 A até que a demanda fique abaixo de 80%. O operador pode configurar o horário de pico manualmente no SEMS+ para antecipar a limitação. Durante o throttling, o display exibe o ícone de raio com triângulo amarelo."
+  },
+  {
+    "id": "kb008",
+    "categoria": "operacao",
+    "titulo": "Sessão de Recarga — Fluxo Operacional",
+    "conteudo": "Uma sessão de recarga segue o fluxo: 1. Usuário conecta o cabo Tipo 2 ao veículo e ao conector do HCA-G2. 2. Autenticação via RFID, app ou QR Code (conforme configuração). 3. Sistema verifica disponibilidade e autoriza via OCPP (mensagem StartTransaction). 4. Carregamento inicia — LED verde fixo. 5. Dados de energia (kWh) são registrados a cada 60 segundos no SEMS+. 6. Finalização por desconexão, limite de tempo ou energia atingido — mensagem StopTransaction. 7. Relatório da sessão disponível no SEMS+ em até 5 minutos."
+  },
+  {
+    "id": "kb009",
+    "categoria": "faturamento",
+    "titulo": "Faturamento por Sessão",
+    "conteudo": "O HCA-G2 suporta três modelos de faturamento configuráveis via SEMS+: 1. Por kWh consumido — cobrança proporcional à energia entregue. 2. Por tempo de sessão — cobrança por minuto conectado, independente de energia. 3. Sessão gratuita — sem cobrança (adequado para benefício de funcionários ou clientes). O valor por kWh ou por minuto é configurado pelo operador no painel SEMS+ em Configurações > Tarifas. A GoodWe não define os valores — o operador tem total autonomia sobre a precificação."
+  },
+  {
+    "id": "kb010",
+    "categoria": "faturamento",
+    "titulo": "Relatório de Consumo e Histórico",
+    "conteudo": "O SEMS+ mantém histórico completo de todas as sessões por até 24 meses. Os relatórios disponíveis incluem: sessões por período (dia, semana, mês), energia total entregue (kWh), receita gerada por conector, tempo médio de sessão e taxa de ocupação dos conectores. Para exportar: acesse SEMS+ > Relatórios > Exportar CSV. O relatório inclui timestamp de início/fim, energia entregue, ID do usuário e valor cobrado."
+  },
+  {
+    "id": "kb011",
+    "categoria": "alertas",
+    "titulo": "Código de Erro E01 — Falha de Comunicação OCPP",
+    "conteudo": "E01 indica que o HCA-G2 perdeu conexão com o servidor OCPP (SEMS+ ou backend próprio). Ações: 1. Verificar conexão de rede — cabo Ethernet ou sinal Wi-Fi. 2. Confirmar que o endereço do servidor OCPP está correto em Configurações > Rede > URL OCPP. 3. Reiniciar o equipamento pelo display: Menu > Sistema > Reiniciar. 4. Se persistir após 10 minutos, verificar se o servidor OCPP está acessível externamente (teste via ping). O equipamento continua carregando localmente durante E01, mas não registra sessões remotamente."
+  },
+  {
+    "id": "kb012",
+    "categoria": "alertas",
+    "titulo": "Código de Erro E02 — Sobretemperatura",
+    "conteudo": "E02 indica que a temperatura interna do HCA-G2 excedeu 70°C. O equipamento suspende automaticamente as sessões ativas para proteção. Ações imediatas: 1. Verificar se as ventilações laterais estão obstruídas. 2. Verificar se o equipamento está exposto a sol direto sem proteção. 3. Aguardar 15 minutos com o equipamento energizado mas sem carga — o ventilador interno irá resfriar. 4. Se a temperatura ambiente superar 45°C, considerar instalação de proteção solar ou ventilação adicional. O carregamento é retomado automaticamente quando a temperatura interna cai abaixo de 60°C."
+  },
+  {
+    "id": "kb013",
+    "categoria": "alertas",
+    "titulo": "Código de Erro E03 — Falha no Conector",
+    "conteudo": "E03 indica problema físico ou elétrico no conector Tipo 2. Pode ser causado por: cabo danificado, corpo estranho no conector, ou falha no circuito de detecção de estado (CP/PP). Ações: 1. Inspecionar visualmente o conector — verificar pinos dobrados ou sujeira. 2. Limpar o conector com pano seco (equipamento desligado). 3. Testar com outro cabo Tipo 2. 4. Se o erro permanecer após substituição de cabo, o problema é interno — acionar suporte técnico GoodWe. Não tente abrir o equipamento. Número de suporte GoodWe Brasil: 0800-XXX-XXXX."
+  },
+  {
+    "id": "kb014",
+    "categoria": "alertas",
+    "titulo": "Código de Erro E04 — Falta de Fase",
+    "conteudo": "E04 indica ausência de uma ou mais fases na alimentação elétrica do HCA-G2. É um erro de infraestrutura, não do equipamento. Ações imediatas: 1. Verificar o disjuntor dedicado do HCA-G2 no quadro elétrico — pode ter disparado. 2. Se o disjuntor estiver ok, verificar tensão nas três fases com multímetro. 3. Contatar a concessionária de energia se houver queda de fase na rede. 4. Não tente religar o HCA-G2 manualmente antes de resolver a questão elétrica — risco de dano ao equipamento."
+  },
+  {
+    "id": "kb015",
+    "categoria": "alertas",
+    "titulo": "Situação de Risco Elétrico — Protocolo de Emergência",
+    "conteudo": "Se o operador identificar fumaça, cheiro de queimado, faíscas, água infiltrando no equipamento ou choque elétrico: 1. DESLIGUE imediatamente o disjuntor dedicado do HCA-G2 no quadro elétrico. 2. Não toque no equipamento ou no cabo de carregamento. 3. Afaste pessoas da área — mínimo 3 metros. 4. Se houver fogo, use extintor CO2 (nunca água). 5. Acione o Corpo de Bombeiros se necessário (193). 6. Notifique o suporte técnico GoodWe imediatamente. O equipamento NÃO deve ser religado até inspeção técnica presencial."
+  },
+  {
+    "id": "kb016",
+    "categoria": "operacao",
+    "titulo": "Procedimentos Operacionais — Abertura do Posto",
+    "conteudo": "Rotina de abertura diária do eletroposto: 1. Verificar no SEMS+ se todos os conectores estão com status 'Disponível' (ícone verde). 2. Confirmar que não há alertas ativos no painel de notificações. 3. Verificar limpeza física dos conectores — remover sujeira ou umidade. 4. Conferir se o display do HCA-G2 está ativo e exibindo a tela inicial. 5. Testar comunicação com SEMS+ realizando login e verificando atualização de dados em tempo real. 6. Registrar no diário de operação quaisquer ocorrências da noite anterior."
+  },
+  {
+    "id": "kb017",
+    "categoria": "operacao",
+    "titulo": "Procedimentos Operacionais — Reinicialização do Equipamento",
+    "conteudo": "Para reiniciar o HCA-G2: Método 1 (Software) — acesse o display: Menu > Sistema > Reiniciar > Confirmar. O equipamento leva aproximadamente 90 segundos para reiniciar completamente. Sessões ativas são encerradas com registro parcial de kWh. Método 2 (Hardware) — desligue o disjuntor dedicado, aguarde 30 segundos, religue. Use o Método 2 apenas se o display não responder. Após reinicialização, aguarde 2 minutos antes de iniciar nova sessão de recarga."
+  },
+  {
+    "id": "kb018",
+    "categoria": "sems",
+    "titulo": "SEMS+ — Plataforma de Gestão GoodWe",
+    "conteudo": "O SEMS+ (Smart Energy Management System) é a plataforma cloud da GoodWe para gestão de eletropostos. Acesso: sems.goodwe.com ou app GoodWe SEMS (iOS/Android). Funcionalidades disponíveis ao operador: monitoramento em tempo real de todos os conectores, histórico de sessões, gestão de usuários e RFID, configuração de tarifas, relatórios de consumo e receita, alertas e notificações por e-mail/SMS, e configuração de parâmetros do HCA-G2 remotamente. O SEMS+ é gratuito para equipamentos GoodWe registrados."
+  },
+  {
+    "id": "kb019",
+    "categoria": "sems",
+    "titulo": "SEMS+ — Gestão de Usuários e RFID",
+    "conteudo": "O operador pode cadastrar usuários autorizados no SEMS+ em Usuários > Adicionar. Cada usuário pode ter um cartão RFID associado (padrão ISO 14443-A/B). Para vincular um cartão: Usuários > Selecionar usuário > Cartões RFID > Adicionar cartão > Aproximar o cartão do leitor do HCA-G2. O sistema suporta até 500 cartões RFID por equipamento armazenados localmente (modo offline). Grupos de usuários permitem configurar limites de energia por sessão e horários permitidos de uso."
+  },
+  {
+    "id": "kb020",
+    "categoria": "goodwe",
+    "titulo": "GoodWe — Empresa e Missão",
+    "conteudo": "A GoodWe é uma empresa chinesa fundada em 2010, especializada em inversores solares e soluções de armazenamento de energia. Listada na Bolsa de Xangai (688390.SH), está presente em mais de 100 países. No Brasil, opera desde 2015 com escritório em São Paulo. No segmento de mobilidade elétrica, a GoodWe oferece a linha HCA de carregadores AC para o mercado comercial, integrados ao ecossistema solar-storage-EV da empresa. O EV Challenge 2026 é uma iniciativa da GoodWe em parceria com a FIAP para desenvolver soluções inovadoras de gestão de eletropostos."
+  },
+  {
+    "id": "kb021",
+    "categoria": "goodwe",
+    "titulo": "EV Challenge 2026 — Contexto do Desafio",
+    "conteudo": "O EV Challenge 2026 é um desafio proposto pela GoodWe em parceria com a FIAP. O problema central é a ausência de mecanismos integrados para orquestrar potência, registrar ciclos de recarga, processar faturamento e comunicar status dos equipamentos — o que a GoodWe denomina ChargeGrid Intelligence. Atualmente, operadores precisam acessar múltiplos painéis desconexos para obter informações básicas sobre seus postos. A solução proposta pelos times é um chatbot inteligente que centraliza e contextualiza essas informações em linguagem natural."
+  },
+  {
+    "id": "kb022",
+    "categoria": "operacao",
+    "titulo": "Protocolos de Comunicação — OCPP",
+    "conteudo": "O HCA-G2 suporta OCPP 1.6 JSON (Open Charge Point Protocol). O OCPP é o protocolo padrão da indústria para comunicação entre carregadores e sistemas de gestão (CSMS). Mensagens principais suportadas: BootNotification, Heartbeat, StartTransaction, StopTransaction, MeterValues, StatusNotification, RemoteStartTransaction, RemoteStopTransaction, ChangeConfiguration, GetDiagnostics. O intervalo de heartbeat padrão é 60 segundos. O HCA-G2 pode ser integrado a qualquer backend OCPP 1.6 compatível, não apenas ao SEMS+."
+  },
+  {
+    "id": "kb023",
+    "categoria": "operacao",
+    "titulo": "Conectores e Padrões de Carregamento",
+    "conteudo": "O HCA-G2 utiliza conectores Tipo 2 (IEC 62196-2), padrão dominante no mercado europeu e brasileiro para carregamento AC. O Tipo 2 suporta carregamento monofásico (7,4 kW a 32 A) e trifásico (22 kW a 32 A). O cabo de carregamento pode ser do tipo 'tethered' (fixo no equipamento) ou 'untethered' (o usuário usa seu próprio cabo). O HCA-G2 não suporta carregamento DC — para recarga rápida DC (CHAdeMO, CCS), são necessários outros equipamentos da linha GoodWe."
+  },
+  {
+    "id": "kb024",
+    "categoria": "faturamento",
+    "titulo": "Relatório Diário — Como Consultar Sessões por Período",
+    "conteudo": "Para consultar sessões de um período específico no SEMS+: 1. Acesse sems.goodwe.com e faça login. 2. Selecione seu eletroposto no mapa ou lista. 3. Acesse a aba 'Histórico de Sessões'. 4. Use os filtros de data/hora para delimitar o período desejado (ex: hoje, das 12h às 18h para período da tarde). 5. A tabela exibida mostra: conector, horário início/fim, energia entregue (kWh), usuário e valor cobrado. 6. O botão 'Exportar' gera um arquivo CSV com todos os dados filtrados."
+  },
+  {
+    "id": "kb025",
+    "categoria": "operacao",
+    "titulo": "Status dos Conectores — Indicadores LED e Display",
+    "conteudo": "O HCA-G2 possui LEDs frontais para cada conector com os seguintes estados: Azul piscando — inicializando ou aguardando conexão OCPP. Verde fixo — carregamento em andamento. Azul fixo — disponível (pronto para uso). Amarelo piscando — throttling ativo ou aviso de manutenção. Vermelho fixo — erro ativo (verificar código no display). Apagado — sem alimentação elétrica. O display LCD também exibe o status textual e os kWh entregues na sessão atual em tempo real."
+  }
+]
