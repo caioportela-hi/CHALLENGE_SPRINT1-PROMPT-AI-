@@ -56,12 +56,6 @@ Isso elimina alucinações sobre especificações técnicas e garante que os dad
 
 ---
 
-##  Tecnologia Selecionada
-
-| Componente | Tecnologia | Justificativa |
-|-----------|-----------|---------------|
-| Modelo de IA | OpenAI GPT-4o | Melhor relação custo-desempenho para compreensão de linguagem técnica em português; suporte nativo a function calling para consultas de API |
-
 ### Componentes
  
 | Componente | Tecnologia | Função |
@@ -80,7 +74,7 @@ Isso elimina alucinações sobre especificações técnicas e garante que os dad
 ```
 Operador envia pergunta
         ↓
-Injeção de contexto (system prompt + dados do posto)
+Injeção de contexto (system prompt + dados do posto + base de conhecimento)
         ↓
 Classificação de intenção (operacional / técnica / faturamento)
         ↓
@@ -88,7 +82,9 @@ Classificação de intenção (operacional / técnica / faturamento)
 │ Requer dados    │    │ Contexto base        │
 │ em tempo real?  │    │ é suficiente?        │
 │ → Consulta o    │    │ → Responde direto    │
-│   SEMS+         │    │   com system prompt  │
+│   SEMS+         │    │   com system prompt/ |
+|                 |    |   base de            |
+|                 |    |   conhecimento       |
 └─────────────────┘    └──────────────────────┘
         ↓
 Geração de resposta pelo GPT-4o
@@ -121,14 +117,6 @@ Selecione: knowledge_base.json
 ```
  
 **4. Execute as células em ordem**
-```
-Célula 1 — Instala dependências (openai, faiss-cpu, numpy)
-Célula 2 — Importa bibliotecas e conecta à API
-Célula 3 — Carrega e vetoriza a base de conhecimento (≈ 30s)
-Célula 4 — Define funções de RAG e chat
-Célula 5 — Executa os 5 casos de teste automaticamente
-Célula 6 — Interface de chat interativo (loop com input())
-```
 
 ---
  
