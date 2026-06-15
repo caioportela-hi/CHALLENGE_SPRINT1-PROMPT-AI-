@@ -36,6 +36,7 @@ O **RAG (Retrieval-Augmented Generation)** permite que o chatbot responda com ba
 1. A query é vetorizada e comparada aos 25 documentos da base
 2. Os 3 mais relevantes (score > 0.3) são recuperados
 3. São injetados dinamicamente no system prompt antes da resposta
+´´´
 Isso elimina alucinações sobre especificações técnicas e garante que os dados (potências, erros, procedimentos) sejam precisos e rastreáveis.
  
 ---
