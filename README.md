@@ -104,7 +104,7 @@ Selecione: Chatbot_GoodWe_Sprint2.ipynb
  
 **2. Configure a API Key via Colab Secrets**
 ```
-Painel esquerdo > ícone de chave 🔑 > "+ Adicionar novo secret"
+Painel esquerdo > ícone de chave  > "+ Adicionar novo secret"
 Nome: OPENAI_API_KEY
 Valor: sk-... (sua chave)
 Ative a opção "Acesso ao notebook"
@@ -112,7 +112,7 @@ Ative a opção "Acesso ao notebook"
  
 **3. Faça upload da base de conhecimento**
 ```
-Painel esquerdo > ícone de pasta 📁 > Upload
+Painel esquerdo > ícone de pasta  > Upload
 Selecione: knowledge_base.json
 ```
  
