@@ -30,6 +30,16 @@ O **ChargeGrid Intelligence Bot** é um assistente conversacional com IA destina
 ### Persona atendida
 **Operador comercial** — responsável pela gestão diária do eletroposto, que precisa de respostas rápidas sobre consumo, faturamento, status dos conectores e alertas de falha, sem depender de suporte técnico para dúvidas rotineiras.
 
+### Implementação do RAG
+O **RAG (Retrieval-Augmented Generation)** permite que o chatbot responda com base em documentação técnica precisa da GoodWe, em vez de depender apenas do conhecimento genérico do modelo. A cada pergunta:
+ 
+1. A query é vetorizada e comparada aos 25 documentos da base
+2. Os 3 mais relevantes (score > 0.3) são recuperados
+3. São injetados dinamicamente no system prompt antes da resposta
+Isso elimina alucinações sobre especificações técnicas e garante que os dados (potências, erros, procedimentos) sejam precisos e rastreáveis.
+ 
+---
+
 ### O que o chatbot resolve
 - Consultas sobre **status de conectores** em tempo real
 - Dúvidas sobre **orquestração de potência** e balanceamento de carga
@@ -51,11 +61,16 @@ O **ChargeGrid Intelligence Bot** é um assistente conversacional com IA destina
 |-----------|-----------|---------------|
 | Modelo de IA | OpenAI GPT-4o | Melhor relação custo-desempenho para compreensão de linguagem técnica em português; suporte nativo a function calling para consultas de API |
 
-### Justificativa técnica da escolha do GPT-4o
-- **Compreensão técnica**: o modelo interpreta termos de energia elétrica e protocolos de recarga  sem fine-tuning
-- **Function calling**: permite ao chatbot decidir autonomamente quando consultar o SEMS+ vs. responder com contexto base
-- **Multilingue**: responde em português com qualidade nativa
-- **API madura**: documentação sólida, SLA estabelecido, adequado para MVP em prazo de Sprint
+### Componentes
+ 
+| Componente | Tecnologia | Função |
+|-----------|-----------|--------|
+| Modelo de linguagem | `gpt-4o-mini` (OpenAI) | Geração de respostas |
+| Embeddings | `text-embedding-3-small` (OpenAI) | Vetorização de documentos e queries |
+| Índice vetorial | `FAISS` (Meta AI) | Busca por similaridade semântica |
+| Base de conhecimento | `knowledge_base.json` | 25 documentos técnicos GoodWe |
+| Memória de sessão | Lista de mensagens (histórico) | Diálogos contínuos e coerentes |
+| Segurança de credenciais | Google Colab Secrets | API Key nunca exposta no código |
 
 ---
 
@@ -79,6 +94,56 @@ Geração de resposta pelo GPT-4o
         ↓
 Resposta exibida na interface do operador
 ```
+
+## Como Executar no Google Colab
+ 
+### Pré-requisitos
+- Conta Google com acesso ao [Google Colab](https://colab.research.google.com)
+- Chave de API da OpenAI (obtenha em [platform.openai.com](https://platform.openai.com))
+### Passo a passo
+ 
+**1. Abra o notebook no Colab**
+```
+Arquivo > Abrir notebook > GitHub > cole a URL do repositório
+Selecione: Chatbot_GoodWe_Sprint2.ipynb
+```
+ 
+**2. Configure a API Key via Colab Secrets** *(sem expor a chave no código)*
+```
+Painel esquerdo > ícone de chave 🔑 > "+ Adicionar novo secret"
+Nome: OPENAI_API_KEY
+Valor: sk-... (sua chave)
+Ative a opção "Acesso ao notebook"
+```
+ 
+**3. Faça upload da base de conhecimento**
+```
+Painel esquerdo > ícone de pasta 📁 > Upload
+Selecione: knowledge_base.json
+```
+ 
+**4. Execute as células em ordem**
+```
+Célula 1 — Instala dependências (openai, faiss-cpu, numpy)
+Célula 2 — Importa bibliotecas e conecta à API
+Célula 3 — Carrega e vetoriza a base de conhecimento (≈ 30s)
+Célula 4 — Define funções de RAG e chat
+Célula 5 — Executa os 5 casos de teste automaticamente
+Célula 6 — Interface de chat interativo (loop com input())
+```
+
+---
+ 
+## Casos de Teste — Resultados Sprint 2
+ 
+| ID | Descrição | Avaliação |
+|----|-----------|-----------|
+| TC01 | Status de conector — LED amarelo piscando | ✅ Adequada |
+| TC02 | Erro E02 — Sobretemperatura no HCA-G2 | ✅ Adequada |
+| TC03 | Consulta de sessões e faturamento por período | ✅ Adequada |
+| TC04 | Balanceamento de carga com dois veículos | ✅ Adequada |
+| TC05 | Emergência — cheiro de queimado e faísca | ✅ Adequada |
+ 
 
 ---
 
